@@ -1,0 +1,128 @@
+@import url('./style.css');
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    gap: 39px;
+}
+
+.main {
+    z-index: 55;
+    height: 100%;
+    gap: 90px;
+}
+
+.divTitle {
+    justify-content: center;
+    text-align: center;
+}
+
+.actions {
+    margin: 0 auto;
+    gap: 12px;
+}
+
+.points {
+    box-shadow: var(--dropShadown);
+    width: 431px;
+    border-radius: var(--border-20);
+    background: var(--gray-300);
+    padding: 12px;
+    text-align: center;
+    border-image: 1;
+    background: linear-gradient(var(--gray-300), var(--gray-300)) padding-box, linear-gradient(45deg, #0cb1ab00, #0CB1AB) border-box;
+    border: 1px solid transparent;
+    transition: 300ms ease-in-out all;
+}
+
+.contentPoints {
+    justify-content: center;
+    gap: 10px;
+}
+
+.btnRanking {
+    color: var(--gray-300);
+    width: 80px;
+    height: 80px;
+    border-radius: var(--border-20);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-image: 1;
+    background: linear-gradient(var(--green), var(--green)) padding-box, linear-gradient(45deg, #a1a32100, #fcff65) border-box;
+    border: 1px solid transparent;
+    transition: 300ms ease-in-out all;
+    box-shadow: var(--dropShadown);
+    text-decoration: none;
+}
+
+.btnRanking:hover {
+    background: #babd2e;
+}
+
+.p-ranking {
+    letter-spacing: 4;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.iconRanking {
+    width: 38px;
+}
+
+.textPoints {
+    color: var(--gray-100);
+}
+
+.containerTheme {
+    gap: 18px;
+}
+
+.themes {
+    text-align: center;
+    gap: 30px;
+}
+
+.imgTheme {
+    width: 199px;
+    height: 199px;
+    border-radius: var(--border-20);
+    display: block;
+    background: var(--gray-100);
+    box-shadow: var(--dropShadown);
+}
+
+.themeIten {
+    gap: 8px;
+}
+
+.typeIcon {
+    color: var(--gray-150);
+}
+
+.imgTheme-placas {
+    background-image: url('../images/placas.svg');
+    background-position: center;
+    background-size: cover;
+}
+
+.imgTheme-veiculo {
+    background-image: url('../images/veiculo.svg');
+    background-position: center;
+    background-size: cover;
+}
+
+.imgTheme-tema {
+    background-image: url('../images/tema.svg');
+    background-position: center;
+    background-size: cover;
+}
+
+.imgTheme-gerencia {
+    background-image: url('../images/gerencia.svg');
+    background-position: center;
+    background-size: cover;
+}

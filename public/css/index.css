@@ -1,0 +1,102 @@
+@import url('./style.css');
+
+body {
+  background: #1E1F22;
+  color: #fff;
+}
+
+.d-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.d-flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 6px;
+}
+
+input {
+  color: var(--gray-100);
+  background: #3B3E48;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  height: 50px;
+  padding: 12px;
+}
+
+input:focus {
+  outline-color: var(--green);
+}
+
+input::placeholder {
+  color: var(--gray-100);
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+}
+
+.formHome {
+  background: #292B32;
+  border-radius: 20px;
+  box-shadow: var(--dropShadown);
+  padding: 30px 18px;
+  width: 100vh;
+  text-align: center;
+  justify-content: space-evenly;
+  z-index: 2;
+}
+
+.fieldUsername {
+  height: 0;
+  transform: scale(0.9); 
+  opacity: 0;
+  transition: all 0.5s ease-in-out; 
+  margin: 10px auto;
+  width: 60%;
+  justify-content: start;
+}
+
+.showField {
+  margin: 50px auto;
+  height: 80px;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.subtitle-index {
+  color: #767D8C;
+  position: relative;
+  bottom: 10px;
+}
+
+.topContainer {
+  position: relative;
+  bottom: 100px;
+}
