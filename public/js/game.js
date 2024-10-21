@@ -7,17 +7,61 @@ $(document).ready(function () {
     var theme = urlParams.get('theme')
     var gameTheme = $('#gameTheme')
 
-    var placas = {
-        1  : '../public/images/game/p1.svg',
-        2  : '../public/images/game/p2.svg',
-        3  : '../public/images/game/p3.svg',
-        4  : '../public/images/game/p4.svg',
-        5  : '../public/images/game/p5.svg',
-        6  : '../public/images/game/p6.svg',
-        7  : '../public/images/game/p7.svg',
-        8  : '../public/images/game/p8.svg',
-        9  : '../public/images/game/p9.svg'
-    }
+    var path = [{
+        1: {
+            header: {
+                theme: 'Placas',
+                extensionFile: 'svg'
+            }, body: {
+                1: '../public/images/game/placas/p1.svg',
+                2: '../public/images/game/placas/p2.svg',
+                3: '../public/images/game/placas/p3.svg',
+                4: '../public/images/game/placas/p4.svg',
+                5: '../public/images/game/placas/p5.svg',
+                6: '../public/images/game/placas/p6.svg',
+                7: '../public/images/game/placas/p7.svg',
+                8: '../public/images/game/placas/p8.svg',
+                9: '../public/images/game/placas/p9.svg'
+            }
+        },
+        2: {
+            header: {
+                theme: 'veiculos',
+                extensionFile: 'null'
+            }, body: {
+                1: 'null'
+            }
+        },
+        3: {
+            header: {
+                theme: 'manuti',
+                extensionFile: 'null'
+            }, body: {
+                1: 'null',
+            }
+        },
+        4: {
+            header: {
+                theme: 'Líderes',
+                extensionFile: 'jpg'
+            }, body: {
+                1: '../public/images/game/gerencia/l1.jpg',
+                2: '../public/images/game/gerencia/l2.jpg',
+                3: '../public/images/game/gerencia/l3.jpg',
+                4: '../public/images/game/gerencia/l4.jpg',
+                5: '../public/images/game/gerencia/l5.jpg',
+                6: '../public/images/game/gerencia/l6.jpg',
+                7: '../public/images/game/gerencia/l7.jpg',
+                8: '../public/images/game/gerencia/l8.jpg',
+                9: '../public/images/game/gerencia/l9.jpg',
+                10: '../public/images/game/gerencia/l10.jpg',
+                11: '../public/images/game/gerencia/l11.jpg',
+                12: '../public/images/game/gerencia/l12.jpg',
+                13: '../public/images/game/gerencia/l13.jpg',
+                14: '../public/images/game/gerencia/l14.jpg'
+            }
+        }
+    }]
 
     var modalFinished = $('#modalFinished').hide()
     var textCountDown = $('#textCountDown').hide()
@@ -61,11 +105,11 @@ $(document).ready(function () {
             break;
 
         case 't':
-            printCard('Temas')
+            printCard('Projetos Menutenção & Tecnologia')
             break;
 
-        case 'g':
-            printCard('Gerência')
+        case 'l':
+            printCard('Líderes')
             break;
 
         default:
@@ -171,36 +215,59 @@ $(document).ready(function () {
         });
     });
 
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
     function printCard(type) {
-        var type = type;
+        var contentMain = $('#contentMain');
+        contentMain.empty();
 
         gameTheme.text(type);
 
-        var nCards = 1;
-        var cardNumbers = [];
-        var contentMain = $('#contentMain');
+        for (let themes of path) {
+            for (let i in themes) {
+                if (themes[i].header.theme === type) {
+                    var body = themes[i].body;
 
-        while (nCards <= 6) {
-            cardNumbers.push(nCards, nCards);
-            nCards++;
-        }
+                    let imgUrls = [];
+                    for (let key in body) {
+                        let imgUrl = body[key];
+                        if (imgUrl !== 'null') {
+                            imgUrls.push(imgUrl);
+                        }
+                    }
 
-        cardNumbers = cardNumbers.sort(() => Math.random() - 0.5);
-        nCards = 0;
+                    let selectedImages = shuffle(imgUrls).slice(0, 6);
 
-        while (nCards < 12) {
-            var currentNumber = cardNumbers[nCards];
-            var htmlCard = `<div class='card' data-card='${currentNumber}'> 
-                              <div class='card-inner'>
-                                <div class='card-front'></div>
-                                <div class='card-back'>
-                                  <img src='../public/images/game/${theme}${currentNumber}.svg'>
-                                </div>
-                              </div>
-                            </div>`;
+                    let cardPairs = [];
+                    selectedImages.forEach((imgUrl, index) => {
+                        cardPairs.push({ imgUrl: imgUrl, dataCard: index + 1 });
+                        cardPairs.push({ imgUrl: imgUrl, dataCard: index + 1 });
+                    });
 
-            contentMain.append(htmlCard);
-            nCards++;
+                    cardPairs = shuffle(cardPairs);
+
+                    cardPairs.forEach(card => {
+                        var imgElement = `<div class='card' data-card='${card.dataCard}'> 
+                                            <div class='card-inner'>
+                                                <div class='card-front'></div>
+                                                <div class='card-back'>
+                                                <img src='${card.imgUrl}'>
+                                                </div>
+                                            </div>
+                                            </div>`;
+
+                        contentMain.append(imgElement);
+                    });
+
+                    return;
+                }
+            }
         }
     }
 

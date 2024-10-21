@@ -40,11 +40,11 @@ include_once('head.php');
                 </div>
                 <div class="themeIten d-flex-column">
                     <a class="imgTheme imgTheme-tema" href="game.php?theme=t"></a>
-                    <p class="p-m typeIcon">Tema</p>
+                    <p class="p-m typeIcon">Projetos Manu & TI</p>
                 </div>
                 <div class="themeIten d-flex-column">
-                    <a class="imgTheme imgTheme-gerencia" href="game.php?theme=g"></a>
-                    <p class="p-m typeIcon">Gerência</p>
+                    <a class="imgTheme imgTheme-gerencia" href="game.php?theme=l"></a>
+                    <p class="p-m typeIcon">Líderes</p>
                 </div>
             </div>
         </div>
