@@ -5,6 +5,7 @@ $(document).ready(function () {
     const urlParams = new URLSearchParams(queryString)
 
     var theme = urlParams.get('theme')
+    var username = urlParams.get('username')
     var gameTheme = $('#gameTheme')
 
     var path = [{
@@ -13,15 +14,15 @@ $(document).ready(function () {
                 theme: 'Placas',
                 extensionFile: 'svg'
             }, body: {
-                1: '../public/images/game/placas/p1.svg',
-                2: '../public/images/game/placas/p2.svg',
-                3: '../public/images/game/placas/p3.svg',
-                4: '../public/images/game/placas/p4.svg',
-                5: '../public/images/game/placas/p5.svg',
-                6: '../public/images/game/placas/p6.svg',
-                7: '../public/images/game/placas/p7.svg',
-                8: '../public/images/game/placas/p8.svg',
-                9: '../public/images/game/placas/p9.svg'
+                1 : '../public/images/game/placas/p1.svg',
+                2 : '../public/images/game/placas/p2.svg',
+                3 : '../public/images/game/placas/p3.svg',
+                4 : '../public/images/game/placas/p4.svg',
+                5 : '../public/images/game/placas/p5.svg',
+                6 : '../public/images/game/placas/p6.svg',
+                7 : '../public/images/game/placas/p7.svg',
+                8 : '../public/images/game/placas/p8.svg',
+                9 : '../public/images/game/placas/p9.svg'
             }
         },
         2: {
@@ -196,13 +197,19 @@ $(document).ready(function () {
                     $('#pointTimePlacar').text(pointTime)
                     $('#pointClickPlacar').text(pointClick)
 
+                    const points = `{name: ${username}, theme: ${theme}, clicks: ${pointClick} , time: ${pointTime}}`;
+
+                    $('#globalVariable').val(points)
+
                     confetti()
 
                     audioFinished.play()
+
                     setInterval(function () {
                         magic.volume = .5
                         magic.play()
                     }, 1000)
+
                     music.pause()
                 }
 

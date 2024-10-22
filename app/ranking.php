@@ -48,133 +48,21 @@ include_once('head.php');
                 </span>
             </div>
         </div>
-        <table class="tableRanking">
+        <table class="tableRanking" id="tableRanking">
             <thead>
                 <tr>
                     <th>Posição</th>
                     <th class="greenWord">Nome</th>
+                    <th>Tema</th>
                     <th>Clicks</th>
                     <th>Tempo</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>4°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>5°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>6°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>7°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>8°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>4°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>4°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>4°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>4°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>4°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>4°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>4°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>4°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>4°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>4°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>4°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>4°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>4°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-                <tr>
-                    <td>4°</td>
-                    <td>Lucas Lima</td>
-                    <td>42</td>
-                    <td>4:00</td>
-                </tr>
-            </tbody>
+            <tbody id="tbodyRanking"></tbody>
         </table>
     </main>
+
+    <script src="../public/js/ranking.js"></script>
 </body>
 
 </html>

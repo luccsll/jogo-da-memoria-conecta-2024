@@ -12,128 +12,69 @@
     <h1 id="gameTheme"></h1>
     <div id="contentMain"></div>
 
+    <table id="tabelaDados" border="1">
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Cidade</th>
+        </tr>
+    </table>
+
+
     <script>
-        var path = [
-            {
-                1: {
-                    header: {
-                        theme: 'placas',
-                        extensionFile: 'svg'
-                    },
-                    body: {
-                        1: '../public/images/game/placas/p1.svg',
-                        2: '../public/images/game/placas/p2.svg',
-                        3: '../public/images/game/placas/p3.svg',
-                        4: '../public/images/game/placas/p4.svg',
-                        5: '../public/images/game/placas/p5.svg',
-                        6: '../public/images/game/placas/p6.svg',
-                        7: '../public/images/game/placas/p7.svg',
-                        8: '../public/images/game/placas/p8.svg',
-                        9: '../public/images/game/placas/p9.svg'
-                    }
-                },
-                2: {
-                    header: {
-                        theme: 'veiculos',
-                        extensionFile: 'null'
-                    },
-                    body: {
-                        1: 'null'
-                    }
-                },
-                3: {
-                    header: {
-                        theme: 'manuti',
-                        extensionFile: 'null'
-                    },
-                    body: {
-                        1: 'null',
-                    }
-                },
-                4: {
-                    header: {
-                        theme: 'lideres',
-                        extensionFile: 'jpg'
-                    },
-                    body: {
-                        1: '../public/images/game/gerencia/l1.jpg',
-                        2: '../public/images/game/gerencia/l2.jpg',
-                        3: '../public/images/game/gerencia/l3.jpg',
-                        4: '../public/images/game/gerencia/l4.jpg',
-                        5: '../public/images/game/gerencia/l5.jpg',
-                        6: '../public/images/game/gerencia/l6.jpg',
-                        7: '../public/images/game/gerencia/l7.jpg',
-                        8: '../public/images/game/gerencia/l8.jpg',
-                        9: '../public/images/game/gerencia/l9.jpg',
-                        10: '../public/images/game/gerencia/l10.jpg',
-                        11: '../public/images/game/gerencia/l11.jpg',
-                        12: '../public/images/game/gerencia/l12.jpg',
-                        13: '../public/images/game/gerencia/l13.jpg',
-                        14: '../public/images/game/gerencia/l14.jpg'
-                    }
-                }
-            }
-        ]
+        function salvarDados(dados) {
+            // Verifica se já existem dados no localStorage
+            const dadosExistentes = localStorage.getItem('dadosGerados');
 
-        function shuffle(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
+            // Se existirem dados, concatena os novos dados com os já existentes
+            let todosOsDados = [];
+            if (dadosExistentes) {
+                todosOsDados = JSON.parse(dadosExistentes);
             }
-            return array;
+
+            // Concatena os novos dados aos já armazenados
+            todosOsDados = todosOsDados.concat(dados);
+
+            // Salva os dados atualizados no localStorage
+            const dadosJSON = JSON.stringify(todosOsDados);
+            localStorage.setItem('dadosGerados', dadosJSON);
         }
 
-        function printCard(type) {
-            var gameTheme = $('#gameTheme')
-            var contentMain = $('#contentMain');
-            contentMain.empty();
+        const dadosGerados = [
+            { nome: "Lucas", idade: 28, cidade: "São Paulo" },
+            { nome: "Ana", idade: 32, cidade: "Rio de Janeiro" }
+        ];
 
-            gameTheme.text(type);
+        salvarDados(dadosGerados);
 
-            for (let themes of path) {
-                for (let i in themes) {
-                    if (themes[i].header.theme === type) {
-                        var body = themes[i].body;
+        const a = [
+            { nome: "Carlos", idade: 10, cidade: "São Paulo" },
+            { nome: "Ana", idade: 32, cidade: "SA" }
+        ];
 
-                        let imgUrls = [];
-                        for (let key in body) {
-                            let imgUrl = body[key];
-                            if (imgUrl !== 'null') {
-                                imgUrls.push(imgUrl);
-                            }
-                        }
+        salvarDados(a);
 
-                        let selectedImages = shuffle(imgUrls).slice(0, 6);
+        function exibirDadosEmTabela() {
+            const dadosJSON = localStorage.getItem('dadosGerados');
 
-                        let cardPairs = [];
-                        selectedImages.forEach((imgUrl, index) => {
-                            cardPairs.push({ imgUrl: imgUrl, dataCard: index + 1 });
-                            cardPairs.push({ imgUrl: imgUrl, dataCard: index + 1 });
-                        });
+            if (dadosJSON) {
+                const dados = JSON.parse(dadosJSON);
+                const tabela = document.getElementById('tabelaDados');
 
-                        cardPairs = shuffle(cardPairs);
+                dados.forEach((item) => {
+                    const novaLinha = tabela.insertRow();
+                    const celulaNome = novaLinha.insertCell(0);
+                    const celulaIdade = novaLinha.insertCell(1);
+                    const celulaCidade = novaLinha.insertCell(2);
 
-                        cardPairs.forEach(card => {
-                            var imgElement = `<div class='card' data-card='${card.dataCard}'> 
-                                                <div class='card-inner'>
-                                                    <div class='card-front'></div>
-                                                    <div class='card-back'>
-                                                    <img src='${card.imgUrl}'>
-                                                    </div>
-                                                </div>
-                                                </div>`;
-
-                            contentMain.append(imgElement);
-                        });
-
-                        return;
-                    }
-                }
+                    celulaNome.textContent = item.nome;
+                    celulaIdade.textContent = item.idade;
+                    celulaCidade.textContent = item.cidade;
+                });
             }
         }
 
-        printCard('placas');
-
+        exibirDadosEmTabela();
 
 
     </script>

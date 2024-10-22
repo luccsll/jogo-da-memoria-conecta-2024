@@ -5,6 +5,7 @@ $(document).ready(function(){
     buttonStart.on('click', function(){
         fieldUsername.toggleClass('showField')
         formHome.removeClass('topContainer')
+        $(this).attr('type', 'submit')
     })
     
     var username = $('#username')

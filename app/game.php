@@ -14,7 +14,10 @@ include_once('head.php');
     <div class="leftFrame"></div>
     <div class="rightFrame"></div>
 
-    <div class="modalFinished backgroundModal" id="modalFinished"><img class="flareGame" src="../public/images/Flares.svg">
+    <form class="modalFinished backgroundModal" id="modalFinished" method="POST" action="../backend/actSavePoint.php">
+        <input type="hidden" id="globalVariable" name="dataGame">
+        <input type="hidden" name="username" <?= 'value=' . $_GET['username'] ?>>
+        <img class="flareGame" src="../public/images/Flares.svg">
         <div class="containerText d-flex-column">
             <h1 class="h2-m">Parabéns!</h1>
             <p class="a-md textFinished">Você encontrou todos os pares</p>
@@ -22,10 +25,12 @@ include_once('head.php');
                 <p>Tempo: <span id="pointTimePlacar"></span></p>
                 <p>Clicks: <span id="pointClickPlacar"></span></p>
             </div>
-            <div class="divButtons d-flex-row"><a href="index.php" class="button-finished button-outline p-m">Encerrar sessão</a><a href="home.php" class="button-finished button-primary p-m">Continuar jogando</a></div>
+            <div class="divButtons d-flex-row">
+                <button type="submit" class="button-finished button-primary p-m">Voltar ao menu</button>
+            </div>
         </div>
         <div class="confete"></div>
-    </div>
+    </form>
 
     <div class="countdown backgroundModal" id="countdown">
         <div class="countdownBox">
@@ -49,7 +54,7 @@ include_once('head.php');
                     <input type="range" class="inputRange" id="inputRangeVolume" min='0' max='4' value="2">
                 </div>
                 <div class="fieldForm">
-                    <label for=""class="small-m textGray">Musica</label>
+                    <label for="" class="small-m textGray">Musica</label>
                     <button class="buttonSound" id="buttonSound" type="button" role="button">
                         <img src="../public/images/icon/volume_up.svg" class="iconSound">
                         <img src="../public/images/icon/volume_off.svg" class="iconSound soundMuted">

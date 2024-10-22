@@ -105,12 +105,11 @@ body {
     border-image: 1;
     background: linear-gradient(#212225, #28292D) padding-box, linear-gradient(217deg, rgba(84, 83, 94, 1) 0%, rgba(58, 57, 57, 1) 100%) border-box;
     border: 1px solid transparent;
+    overflow: hidden;
 }
 
 .card-back img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: var(--border-10);
+    width: 100%;
 }
 
 .flareGame {

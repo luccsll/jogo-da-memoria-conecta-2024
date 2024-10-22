@@ -1,6 +1,12 @@
 <?php
 include_once('head.php');
 
+if(isset($_GET['username'])){
+    $username = $_GET['username'];
+} else {
+    die;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -31,20 +37,20 @@ include_once('head.php');
             <h2 class="p-m">Temas</h2>
             <div class="containerTheme d-flex-row">
                 <div class="themeIten d-flex-column">
-                    <a class="imgTheme imgTheme-placas" href="game.php?theme=p"></a>
-                    <p class="p-m typeIcon">Placas</p>
+                    <a class="imgTheme imgTheme-placas" href="game.php?theme=p&username=<?= $username ?>"></a>
+                    <p class="a-m typeIcon">Placas</p>
                 </div>
                 <div class="themeIten d-flex-column">
-                    <a class="imgTheme imgTheme-veiculo" href="game.php?theme=v"></a>
-                    <p class="p-m typeIcon">Veículo</p>
+                    <a class="imgTheme imgTheme-veiculo" href="game.php?theme=v&username=<?= $username ?>"></a>
+                    <p class="a-m typeIcon">Veículo</p>
                 </div>
                 <div class="themeIten d-flex-column">
-                    <a class="imgTheme imgTheme-tema" href="game.php?theme=t"></a>
-                    <p class="p-m typeIcon">Projetos Manu & TI</p>
+                    <a class="imgTheme imgTheme-tema" href="game.php?theme=t&username=<?= $username ?>"></a>
+                    <p class="a-m typeIcon">Projetos Manu & TI</p>
                 </div>
                 <div class="themeIten d-flex-column">
-                    <a class="imgTheme imgTheme-gerencia" href="game.php?theme=l"></a>
-                    <p class="p-m typeIcon">Líderes</p>
+                    <a class="imgTheme imgTheme-gerencia" href="game.php?theme=l&username=<?= $username ?>"></a>
+                    <p class="a-m typeIcon">Líderes</p>
                 </div>
             </div>
         </div>
