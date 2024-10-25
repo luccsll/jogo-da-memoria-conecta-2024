@@ -1,8 +1,8 @@
 <?php
 include_once('head.php');
 
-if(isset($_GET['username'])){
-    $username = $_GET['username'];
+if(isset($_GET['id']) && $_GET['id'] != null){
+    $id = $_GET['id'];
 } else {
     die;
 }
@@ -31,30 +31,32 @@ if(isset($_GET['username'])){
                     <p class="a-m">35 Clicks</p>|<p class="a-m">4 Min</p>
                 </div>
             </div>
-            <a href="ranking.php" class="btnRanking d-flex-column"><img class="iconRanking" src="../public/images/icon/medalha.svg"><p class="small-m p-ranking">Ranking</p></a>
+            <a href="ranking.php?id=<?= $id ?>" class="btnRanking d-flex-column"><img class="iconRanking" src="../public/images/icon/medalha.svg"><p class="small-m p-ranking">Ranking</p></a>
         </div>
         <div class="themes d-flex-column">
             <h2 class="p-m">Temas</h2>
             <div class="containerTheme d-flex-row">
                 <div class="themeIten d-flex-column">
-                    <a class="imgTheme imgTheme-placas" href="game.php?theme=p&username=<?= $username ?>"></a>
+                    <a class="imgTheme imgTheme-placas" href="game.php?theme=p&id=<?= $id ?>"></a>
                     <p class="a-m typeIcon">Placas</p>
                 </div>
                 <div class="themeIten d-flex-column">
-                    <a class="imgTheme imgTheme-veiculo" href="game.php?theme=v&username=<?= $username ?>"></a>
+                    <a class="imgTheme imgTheme-veiculo" href="game.php?theme=v&id=<?= $id ?>"></a>
                     <p class="a-m typeIcon">Veículo</p>
                 </div>
                 <div class="themeIten d-flex-column">
-                    <a class="imgTheme imgTheme-tema" href="game.php?theme=t&username=<?= $username ?>"></a>
+                    <a class="imgTheme imgTheme-tema" href="game.php?theme=t&id=<?= $id ?>"></a>
                     <p class="a-m typeIcon">Projetos Manu & TI</p>
                 </div>
                 <div class="themeIten d-flex-column">
-                    <a class="imgTheme imgTheme-gerencia" href="game.php?theme=l&username=<?= $username ?>"></a>
+                    <a class="imgTheme imgTheme-gerencia" href="game.php?theme=l&id=<?= $id ?>"></a>
                     <p class="a-m typeIcon">Líderes</p>
                 </div>
             </div>
         </div>
     </main>
+
+    <script type="module" src="../public/js/home.js"></script>
 </body>
 
 </html>

@@ -5,7 +5,7 @@ $(document).ready(function () {
     const urlParams = new URLSearchParams(queryString)
 
     var theme = urlParams.get('theme')
-    var username = urlParams.get('username')
+    var id = urlParams.get('id')
     var gameTheme = $('#gameTheme')
 
     var path = [{
@@ -197,7 +197,7 @@ $(document).ready(function () {
                     $('#pointTimePlacar').text(pointTime)
                     $('#pointClickPlacar').text(pointClick)
 
-                    const points = `{name: ${username}, theme: ${theme}, clicks: ${pointClick} , time: ${pointTime}}`;
+                    const points = `{"id" : "${id}" , "name": "Lucas Lima", "theme": "${theme}", "clicks": ${pointClick} , "time": "${pointTime}"},`;
 
                     $('#globalVariable').val(points)
 
@@ -240,8 +240,8 @@ $(document).ready(function () {
             for (let i in themes) {
                 if (themes[i].header.theme === type) {
                     var body = themes[i].body;
-
                     let imgUrls = [];
+
                     for (let key in body) {
                         let imgUrl = body[key];
                         if (imgUrl !== 'null') {

@@ -14,9 +14,9 @@ include_once('head.php');
     <div class="leftFrame"></div>
     <div class="rightFrame"></div>
 
-    <form class="modalFinished backgroundModal" id="modalFinished" method="POST" action="../backend/actSavePoint.php">
+    <form class="modalFinished backgroundModal" id="modalFinished" method="GET" action="../backend/actSavePoint.php">
         <input type="hidden" id="globalVariable" name="dataGame">
-        <input type="hidden" name="username" <?= 'value=' . $_GET['username'] ?>>
+        <input type="hidden" name="id" <?= 'value=' . $_GET['id'] ?>>
         <img class="flareGame" src="../public/images/Flares.svg">
         <div class="containerText d-flex-column">
             <h1 class="h2-m">Parabéns!</h1>

@@ -103,26 +103,30 @@ body {
 }
 
 .tableRanking {
+    width: 100%;
+    text-align: center;
+    table-layout: fixed;
+    max-height: 418px;
+}
+
+.containerTable {
+    overflow-y: scroll;
+    padding: 20px 0 0 0;
     border-image: 1;
     background: linear-gradient(#292B32, #292B32) padding-box, linear-gradient(45deg, #3a3939, #3d3c47) border-box;
     border: 1px solid transparent;
-    border-radius: 20px 20px 0 0 ;
+    border-radius: 20px 20px 0 0;
     width: 70%;
+    height: 418px;
     margin: 0 auto;
-    height: 406px;
-    overflow-y: scroll;
-    padding: 20px 0 0 0;
-    table-layout: fixed;
-    text-align: center;
     z-index: 6;
 }
 
-tbody > tr > td  {
+tbody>tr>td {
     height: 48px;
     font-weight: 200;
 }
 
-tbody > tr:nth-child(odd){
+tbody>tr:nth-child(odd) {
     background: #32353f7a;
 }
-

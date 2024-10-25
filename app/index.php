@@ -10,33 +10,32 @@ include_once('head.php');
     <title>Pares & Paradas - Jogo da memória | Nova Rota do Oeste</title>
 </head>
 
-<body class="d-flex-column">
-    <section class="background" id="background"></section
-    >
-    <!-- <div class="alert" id="alert">
-        <img src="../public/images/icon/warning.svg">
-        <div class="contentAlert">
-            <p>Alerta</p>
-            <p>Digite um apelido valido!</p>
-        </div>
-    </div> -->
 
-    <form action="../backend/actProccess.php" method="GET" class="formHome d-flex-column" id="formHome">
+<body class="d-flex-column">
+    <section class="background" id="background"></section>
+
+    <form action="" method="GET" class="formHome d-flex-column" id="formHome">
         <div class="divTitle d-lfex">
             <h1 class="h2-s title-index">Jogo da memória</h1>
             <p class="p-m subtitle-index">Nova Rota do Oeste</p>
         </div>
 
-        <div class="field fieldUsername" id="fieldUsername">
-            <label for="" class="a-m">Nome / Apelido</label>
-            <input type="text" name="username" id="username" class="field" placeholder="lucas123" required autocomplete="off" >
+        <div class="fieldUsername" id="fieldUsername">
+
+            <div class="fieldFormDefault">
+                <label for="username" class="a-m">Informe sua matrícula</label>
+                <input type="number" name="id" id="username" class="field" placeholder="00000000" required autocomplete="off" minlength="6" maxlength="8">
+            </div>
+
+            <div id="keyboard"></div>
+
         </div>
 
         <button type="button" class="p-m button-primary" id="buttonStart">Começar</button>
     </form>
 
     <script src='../public/js/background.js'></script>
-    <script src='../public/js/index.js'></script>
+    <script type="module" src='../public/js/index.js'></script>
 </body>
 
 </html>

@@ -16,6 +16,7 @@ body {
   align-items: center;
 }
 
+/* 
 .field {
   display: flex;
   align-items: center;
@@ -39,7 +40,9 @@ input:focus {
 
 input::placeholder {
   color: var(--gray-100);
-}
+} */
+
+
 
 body {
   width: 100vw;
@@ -74,6 +77,10 @@ body {
 }
 
 .fieldUsername {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 6px;
   height: 0;
   transform: scale(0.9); 
   opacity: 0;
@@ -84,10 +91,11 @@ body {
 }
 
 .showField {
-  margin: 50px auto;
-  height: 80px;
+  margin: 0 auto;
+  height: auto;
   transform: scale(1);
   opacity: 1;
+  margin-bottom: 12px;
 }
 
 .subtitle-index {
